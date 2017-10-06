@@ -63,6 +63,17 @@ yet without awareness your thoughts swallowed whole</textarea>
                 if (e.which == 8)
                     noway.value = '';
             });
+
+            noway.addEventListener('mousedown', function(e) {
+                if (e.which == 3)
+                    noway.value = '';
+            });
+
+            noway.addEventListener('paste', function(e) {
+                setTimeout(function() {
+                    noway.value = '';
+                }, 5);
+            });
         })();
     </script>
 </body>
