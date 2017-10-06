@@ -43,6 +43,8 @@ yet without awareness your thoughts swallowed whole</textarea>
     <script>
         (function() {
             var noway = document.querySelector('.no-way');
+            var contents = '';
+            var clicked = false;
 
             function resize() {
                 noway.style = 'height: ' + (window.innerHeight - 178) + 'px; width: ' + (window.innerWidth - 138) + 'px';
@@ -55,6 +57,7 @@ yet without awareness your thoughts swallowed whole</textarea>
             noway.addEventListener('focus', function() {
                 this.value = '';
                 this.className += ' no-way-clicked';
+                clicked = true;
             }, {
                 once:true
             });
@@ -62,6 +65,8 @@ yet without awareness your thoughts swallowed whole</textarea>
             noway.addEventListener('keydown', function(e) {
                 if (e.which == 8)
                     noway.value = '';
+
+                contents = noway.innerHTML;
             });
 
             noway.addEventListener('mousedown', function(e) {
@@ -74,6 +79,11 @@ yet without awareness your thoughts swallowed whole</textarea>
                     noway.value = '';
                 }, 5);
             });
+
+            setInterval(function() {
+                if (clicked)
+                    noway.innerHTML = contents;
+            }, 250);
         })();
     </script>
 </body>
