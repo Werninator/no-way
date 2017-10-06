@@ -55,6 +55,8 @@ yet without awareness your thoughts swallowed whole</textarea>
             noway.addEventListener('focus', function() {
                 this.value = '';
                 this.className += ' no-way-clicked';
+            }, {
+                once:true
             });
 
             noway.addEventListener('keydown', function(e) {
